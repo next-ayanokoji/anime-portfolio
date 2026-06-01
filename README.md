@@ -2,7 +2,6 @@
 
 A sleek, modern, and high-contrast anime-inspired portfolio webpage built using semantic HTML5 and advanced CSS Grid/Flexbox. This project features a fully responsive layout tailored for both desktop and mobile screens.
 
-Live Preview jaisa layout: [Reference Design](https://user-images.githubusercontent.com/) *(Aap chahein toh yahan apna live link daal sakte hain)*
 
 ---
 
