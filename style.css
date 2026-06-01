@@ -1,0 +1,231 @@
+/* RESET RULES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Isse dimensions perfectly calculation mein rehte hain */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #B31B1B; /* The Signature Red background */
+    color: white;
+    overflow-x: hidden;
+}
+
+/* NAVBAR STYLING */
+.navbar {
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    margin-left: 40px;
+    transition: transform 0.3s ease;
+}
+
+.navbar ul li:hover {
+    transform: scale(1.1);
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* MAIN GRID LAYOUT */
+.grid-container {
+    display: grid;
+    /* Fixed pixels ki jagah responsive fr use kiya (Sidebar: 80px, Text: 1.2 share, Image: 0.8 share) */
+    grid-template-columns: 80px 1.2fr 0.8fr;
+    height: calc(100vh - 60px); /* Total screen height minus navbar height */
+}
+
+/* COLUMN 1: SIDEBAR */
+.sidebar-box {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.05); /* Slight dark overlay for sidebar vibe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar-box ul {
+    list-style: none;
+}
+
+.sidebar-box ul li {
+    margin: 30px 0;
+    text-align: center;
+}
+
+/* COLUMN 2: CENTER TEXT AREA */
+.center-box {
+    display: grid;
+    grid-template-rows: 1fr 120px; /* Text area takes most space, features bar takes 120px */
+}
+
+.hero-text-zone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center alignment */
+    padding-left: 200px;
+    height: 70vh;
+}
+
+.hero-text-zone h1 {
+    font-size: 4.5rem;
+    line-height: 0.9;
+    font-weight: 900;
+}
+
+.hero-text-zone .highlight-name {
+    color: #000000; /* Name gotham black color mein */
+    font-size: 5.5rem;
+    padding-left: 30px;
+}
+
+.hero-text-zone .subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-left: 145px;
+}
+
+/* BOTTOM FEATURES BAR */
+.features-zone {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.features-zone div {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.features-zone div:last-child {
+    border-right: none;
+}
+
+/* COLUMN 3: RIGHT SIDE IMAGE */
+.image-box {
+    display: flex;
+    align-items: flex-end; /* Image block ke bottom se stick rahegi */
+    justify-content: flex-end;
+    position: relative;
+}
+
+.character-img {
+    max-height: 95%; /* Height control taaki box se bahaar na bhaage */
+    object-fit: contain;
+    width: 40rem
+}
+/* =======================================================
+   MOBILE RESPONSIVE STYLES (For Screens under 768px)
+   ======================================================= */
+@media (max-width: 768px) {
+    
+    /* 1. Navbar ke links ko center kiya aur spacing kam ki */
+    .navbar {
+        padding-right: 0;
+        justify-content: center;
+        height: auto;
+        padding: 15px 0;
+    }
+    
+    .navbar ul li {
+        margin: 0 15px;
+    }
+
+    /* 2. Main Grid ko 3 columns se badalkar 1 single column banaya */
+    .grid-container {
+        grid-template-columns: 1fr; /* Ab sab kuch ek single row mein aayega */
+        height: auto; /* Fixed height hatayi taaki page scroll ho sake */
+    }
+
+    /* 3. Sidebar (Social Icons) ko top par horizontal line mein set kiya */
+    .sidebar-box {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+    }
+
+    .sidebar-box ul {
+        display: flex; /* Vertically se badalkar horizontally kiya */
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .sidebar-box ul li {
+        margin: 0;
+    }
+
+    /* 4. Center Box ki rows height set ki */
+    .center-box {
+        grid-template-rows: auto auto;
+    }
+
+    /* 5. Text Zone ki extra left-paddings hatayi taaki text screen se bahar na bhage */
+    .hero-text-zone {
+        height: auto;
+        padding: 40px 20px; /* Center alignment space */
+        text-align: center; /* Poora text center align kiya */
+    }
+
+    .hero-text-zone h1 {
+        font-size: 3rem; /* Mobile ke hisab se font size thoda chota kiya */
+    }
+
+    .hero-text-zone .highlight-name {
+        font-size: 3.8rem;
+        padding-left: 0; /* Extra padding zero ki */
+    }
+
+    .hero-text-zone .subtitle {
+        font-size: 1.2rem;
+        padding-left: 0; /* Extra padding zero ki */
+        text-align: center;
+    }
+
+    /* 6. Bottom Features ko vertical list jaisa stack kiya */
+    .features-zone {
+        grid-template-columns: 1fr; /* 3 columns se 1 column kiya */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .features-zone div {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+    }
+
+    .features-zone div:last-child {
+        border-bottom: none;
+    }
+
+    /* 7. Image Box aur Character Image ko center aur fully responsive banaya */
+    .image-box {
+        justify-content: center;
+        padding: 30px 0 0 0;
+    }
+
+    .character-img {
+        width: 85%; /* Image screen ke bounds mein fit rahegi */
+        max-height: 400px;
+        object-fit: contain;
+    }
+}
